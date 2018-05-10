@@ -1,6 +1,5 @@
 package fr.greenwin.voixlibre.controllers;
 
-import fr.greenwin.voixlibre.config.StorageService;
 import fr.greenwin.voixlibre.entities.Project;
 import fr.greenwin.voixlibre.services.AppUserService;
 import fr.greenwin.voixlibre.services.ProjectCategoryService;
@@ -25,8 +24,6 @@ public class ProjectController {
     @Autowired
     private ProjectCategoryService projectCategoryService;
 
-    @Autowired
-    private StorageService storageService;
 
     @GetMapping
     public String listOfProjects(Model model){
@@ -44,7 +41,7 @@ public class ProjectController {
     }
 
     @PostMapping("/form")
-    public String addProject(@ModelAttribute Project newProject, Model model, @RequestBody MultipartFile file,
+    public void addProject(@ModelAttribute Project newProject, Model model, @RequestBody MultipartFile file,
                            RedirectAttributes redirectAttributes){
 
         try {
@@ -52,11 +49,7 @@ public class ProjectController {
         }catch (Exception e){
             model.addAttribute("erreur", "Un ou plusieurs champs ont été mal renseignés.");
         }
-        storageService.store(file);
-        redirectAttributes.addFlashAttribute("message",
-                "You successfully uploaded " + file.getOriginalFilename() + "!");
 
-        return "redirect:/";
 
     }
 
