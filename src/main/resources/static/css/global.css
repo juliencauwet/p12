@@ -1,0 +1,20 @@
+.form-control{
+    background: #213370;
+    color: floralwhite;
+
+}
+
+.container{
+    min-width: 12em;
+    padding: 3em;
+    background: floralwhite;
+    font-family: FontAwesome;
+    width: 70%;
+}
+
+header{
+    background: aquamarine;
+    height: fit-content;
+    padding: 2em;
+    font-family: FontAwesome;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire de nouveau projet</title>
+</head>
+<body>
+
+<div th:include="nav" />
+
+<div class="container">
+<form method="post" enctype="multipart/form-data" >
+    <fieldset>
+        <div class="form-group">
+            <label>Nouveau projet</label>
+            </br>
+            <label>Titre</label>
+            <input type="text" class="form-control"name="titre" />
+            </br>
+            <label>Catégorie</label>
+            <select  name="category" class="form-control">
+                <option th:each="category:${categories}" th:value="${category.getId()}" th:text="${category.getName()}" />
+            </select>
+            </br>
+            <label>Initiateur</label>
+            <select  name="initiateur" class="form-control">
+                <option th:each="appUser:${appUsers}" th:value="${appUser.getId()}" th:text="${appUser.getPrenom()} + ' ' + ${appUser.getNom()}" />
+            </select>
+            </br>
+            <label>Description</label>
+            <textarea name="description" class="form-control" ></textarea>
+            </br>
+            <label>Date de commencement</label>
+            <input type="date" class="form-control" name="debut" />
+            </br>
+            <label>Date de fin</label>
+            <input type="date" class="form-control" name="fin" />
+            </br>
+
+            <label>Liste des réponses possibles</label>
+            <!--
+            <input th:each="rep:${reps}" type="radio" th:text="">
+            -->
+            </br>
+
+            <label>File to upload (max 500 kB):</label>
+            <input type="file" name="file1" />
+
+            <button class="form-control btn-primary" type="submit" name="create" value="Créer">Créer</button>
+        </div>
+
+    </fieldset>
+</form>
+    <!--
+    <form method="POST"  action="/upload">
+
+    </form>
+    -->
+</div>
+</body>
+</html>

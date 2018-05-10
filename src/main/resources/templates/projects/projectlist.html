@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:include="nav" />
+<!--
+<ul >
+ <li th:each="project:${projects}">
+       <div class="row">
+      <a th:href="'/projects/' +${project.getId()}">
+          <div class="container col-md-6">
+           <h3 th:text="'Projet: ' + ${project.getTitre()} "/>
+           <h4 th:text="'Initiateur: ' + ${project.getInitiateur().getPrenom()} + ' ' + ${project.getInitiateur().getNom()}"/>
+             <h4 th:text="'Catégorie: ' + ${project.getCategory().getName()}"></h4>
+              <h4 th:text="'Description: '" />
+           <h4 th:text="${project.getDescription()}"/>
+           <h4 th:text="'Période de vote: du ' + ${project.getDebut()} + ' au ' + ${project.getFin()}" />
+       </div>
+          <div class="container col-md-6">
+              <h3 th:text="'Nombre de votants total: ' + ${project.getNbVotant()}"></h3>
+          </div>
+       </br>
+      </a>
+       </div>
+
+   </li>
+</ul>
+-->
+<table class="table">
+    <th>Titre</th>
+    <th>Initiateur</th>
+    <th>Catégorie</th>
+    <th>Description</th>
+    <th>Début de période</th>
+    <th>Fin de période</th>
+
+    <tr th:each="project:${projects}" th:a>
+            <td><a th:href="'/projects/' +${project.getId()}" th:text="${project.getTitre()}" /></td>
+        </a>
+        <td th:text="${project.getInitiateur().getPrenom()} + ' ' + ${project.getInitiateur().getNom()}"></td>
+        <td th:text="${project.getCategory().getName()}"></td>
+        <td th:text="${project.getDescription()}"></td>
+        <td th:text="${project.getDebut()}"></td>
+        <td th:text="${project.getFin()}"></td>
+
+    </tr>
+
+</table>
+
+
+</body>
+</html>

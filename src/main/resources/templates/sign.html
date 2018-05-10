@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/sign.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+    <title>Authentification</title>
+</head>
+<body>
+
+<div th:include="nav" />
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <fieldset>
+                <div class="form-group">
+                <form action="/sign" method="post">
+                    <label style="color: floralwhite;">Identifiez-vous</label><br/>
+                    <input class ="sign form-control" type="email" placeholder="Adresse Email" name="emailIn"/><br/>
+                    <input class ="sign form-control" type="password" placeholder="Mot de passe" name="passwordIn"/><br/>
+                    <input type="submit" class="form-control" name="signin" value="Enregistrement"/><br/>
+
+                </form>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-md-6">
+            <fieldset>
+                <div class="form-group">
+                <form action="/sign" method="post">
+                    <label style="color: floralwhite">Ouvrez un compte</label><br/>
+                    <input class ="sign form-control" type="text" placeholder="Nom" name="nom" /><br/>
+                    <input class ="sign form-control" type="text" placeholder="Prénom" name="prenom" /><br/>
+                    <input class ="sign form-control" type="date" placeholder="Année de naissance" name="naissance" /><br/>
+                    <label>Adresse</label>
+                    <input class ="sign form-control" type="text" placeholder="n°" name="num" /><br/>
+                    <input class ="sign form-control" type="text" placeholder="rue" name="rue" /><br/>
+                    <input class ="sign form-control" type="email" placeholder="Adresse Email" name="email"/><br/>
+                    <input class ="sign form-control" type="password" placeholder="Mot de passe" name="password"/><br/>
+                    <input class ="sign form-control" type="password" placeholder="Confirmation Mot de passe" name="passwordUp2"/><br/>
+                    <input type="submit" class="form-control" name="signup" value="Inscription"/><br/>
+                </form>
+                </div>
+            </fieldset>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
