@@ -15,14 +15,13 @@ public class ProjectCategory {
 
     @NotNull
     @Size(min = 3, max = 50)
-    String name;
+    String category;
 
-    public ProjectCategory(@NotNull @Size(min = 3, max = 50) String name) {
-        this.name = name;
+    public ProjectCategory(@NotNull @Size(min = 3, max = 50) String category) {
+        this.category = category;
     }
 
     public ProjectCategory() {
-        this.name = name;
     }
 
     public int getId() {
@@ -33,11 +32,11 @@ public class ProjectCategory {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCategory() {
+        return category;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

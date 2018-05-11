@@ -1,6 +1,7 @@
 package fr.greenwin.voixlibre.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Option {
@@ -9,6 +10,7 @@ public class Option {
     @GeneratedValue
     private int id;
 
+    @NotNull
     private String nom;
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -20,8 +22,9 @@ public class Option {
 
     }
 
-    public Option(String nom) {
+    public Option(@NotNull String nom, Project project) {
         this.nom = nom;
+        this.project = project;
     }
 
     public int getId() {

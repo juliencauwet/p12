@@ -2,6 +2,7 @@ package fr.greenwin.voixlibre.controllers;
 
 import fr.greenwin.voixlibre.entities.Project;
 import fr.greenwin.voixlibre.services.AppUserService;
+import fr.greenwin.voixlibre.services.OptionService;
 import fr.greenwin.voixlibre.services.ProjectCategoryService;
 import fr.greenwin.voixlibre.services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class ProjectController {
 
     @Autowired
     private ProjectCategoryService projectCategoryService;
+
+    @Autowired
+    private OptionService optionService;
 
 
     @GetMapping
@@ -58,6 +62,7 @@ public class ProjectController {
 
         Project project = projectService.getProject(id);
         model.addAttribute("project", project);
+        model.addAttribute("options", optionService.getOptionsByProjectId(id));
 
         return "projects/projectdescription";
     }

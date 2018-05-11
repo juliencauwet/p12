@@ -6,25 +6,26 @@
 </head>
 <body>
 
-<div th:include="nav" />
+<div class="container container-fluid">
+    <div th:include="nav"/>
 
 
-<div class="container col-md-6">
-    <h3 th:text="'Projet: ' + ${project.getTitre()} "/>
-    <h4 th:text="'Initiateur: ' + ${project.getInitiateur().getPrenom()} + ' ' + ${project.getInitiateur().getNom()}"/>
-    <h4 th:text="'Catégorie: ' + ${project.getCategory().getName()}"></h4>
-    <h4 th:text="'Description: '" />
-    <h4 th:text="${project.getDescription()}"/>
-    <h4 th:text="'Période de vote: du ' + ${project.getDebut()} + ' au ' + ${project.getFin()}" />
+    <div class="col-md-6">
+        <h3 th:text="'Projet: ' + ${project.getTitre()} "/>
+        <h4 th:text="'Initiateur: ' + ${project.getInitiateur().getPrenom()} + ' ' + ${project.getInitiateur().getNom()}"/>
+        <h4 th:text="'Catégorie: ' + ${project.getCategory().getCategory()}"></h4>
+        <h4 th:text="'Description: '"/>
+        <h4 th:text="${project.getDescription()}"/>
+        <h4 th:text="'Période de vote: du ' + ${project.getDebut()} + ' au ' + ${project.getFin()}"/>
+    </div>
+
+    <div class="col-md-6">
+        <h3 th:text="'Nombre de votants total: ' + ${project.getNbVotant()}"></h3>
+        <h3>A vous de voter</h3>
+        <ul>
+            <li th:each="option:${options}"><input type="radio" th:text="' ' + ${option.getNom()}" name="option"/></li>
+        </ul>
+    </div>
 </div>
-<div class="container col-md-6">
-    <h3 th:text="'Nombre de votants total: ' + ${project.getNbVotant()}"></h3>
-    <h3>A vous de voter</h3>
-    <!--
-    <input th:each="option:${options}" type="radio" th:text="">
-    -->
-</div>
-</br>
-
 </body>
 </html>

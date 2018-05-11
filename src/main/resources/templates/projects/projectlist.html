@@ -41,7 +41,7 @@
             <td><a th:href="'/projects/' +${project.getId()}" th:text="${project.getTitre()}" /></td>
         </a>
         <td th:text="${project.getInitiateur().getPrenom()} + ' ' + ${project.getInitiateur().getNom()}"></td>
-        <td th:text="${project.getCategory().getName()}"></td>
+        <td th:text="${project.getCategory().getCategory()}"></td>
         <td th:text="${project.getDescription()}"></td>
         <td th:text="${project.getDebut()}"></td>
         <td th:text="${project.getFin()}"></td>

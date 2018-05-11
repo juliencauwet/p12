@@ -8,12 +8,15 @@
 
 <div th:include="nav" />
 
-<form>
+<form method="post">
     <fieldset>
         <label>Entrer un nom de catégorie</label>
-        <input type="text" name="nom" />
+        <input type="text" name="category" />
+        <input type="submit" value="Enregistrer"/>
     </fieldset>
 </form>
+
+<div th:text="${message}"/>
 
 </body>
 </html>

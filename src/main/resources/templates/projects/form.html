@@ -19,7 +19,7 @@
             </br>
             <label>Catégorie</label>
             <select  name="category" class="form-control">
-                <option th:each="category:${categories}" th:value="${category.getId()}" th:text="${category.getName()}" />
+                <option th:each="category:${categories}" th:value="${category.getId()}" th:text="${category.getCategory()}" />
             </select>
             </br>
             <label>Initiateur</label>
@@ -38,9 +38,7 @@
             </br>
 
             <label>Liste des réponses possibles</label>
-            <!--
-            <input th:each="rep:${reps}" type="radio" th:text="">
-            -->
+
             </br>
 
             <label>File to upload (max 500 kB):</label>
@@ -51,11 +49,7 @@
 
     </fieldset>
 </form>
-    <!--
-    <form method="POST"  action="/upload">
 
-    </form>
-    -->
 </div>
 </body>
 </html>

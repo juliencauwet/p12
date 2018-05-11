@@ -18,3 +18,7 @@ header{
     padding: 2em;
     font-family: FontAwesome;
 }
+
+ul{
+    list-style: none;
+}

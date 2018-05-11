@@ -1,9 +1,11 @@
 package fr.greenwin.voixlibre.controllers;
 
 import fr.greenwin.voixlibre.entities.AppUser;
+import fr.greenwin.voixlibre.entities.Option;
 import fr.greenwin.voixlibre.entities.Project;
 import fr.greenwin.voixlibre.entities.ProjectCategory;
 import fr.greenwin.voixlibre.services.AppUserService;
+import fr.greenwin.voixlibre.services.OptionService;
 import fr.greenwin.voixlibre.services.ProjectCategoryService;
 import fr.greenwin.voixlibre.services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,16 +24,13 @@ public class IndexController {
     @Autowired
     ProjectCategoryService projectCategoryService;
 
+    @Autowired
+    OptionService optionService;
+
     @GetMapping("/")
     public String  home(){
 
         return "index";
-    }
-
-    @GetMapping("/settings")
-    public String  settings(){
-
-        return "settings";
     }
 
     @GetMapping("/fixture")
@@ -59,6 +58,20 @@ public class IndexController {
 
         projectService.addProject(p1);
         projectService.addProject(p2);
+
+        Option o1 = new Option("oui", p1);
+        Option o2 = new Option("non", p1);
+        Option o3 = new Option("place des Arts", p2);
+        Option o4 = new Option("devant la Capitainerie", p2);
+        Option o5 = new Option("Boulevard Carnot", p2);
+        Option o6 = new Option("dans le château de Ripaille", p2);
+
+        optionService.addOption(o1);
+        optionService.addOption(o2);
+        optionService.addOption(o3);
+        optionService.addOption(o4);
+        optionService.addOption(o5);
+        optionService.addOption(o6);
 
         return "index";
     }
