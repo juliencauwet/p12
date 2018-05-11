@@ -1,6 +1,8 @@
 package fr.greenwin.voixlibre.entities;
 
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -18,9 +20,21 @@ public class AppUser {
     @NotNull
     @Size(min = 2, max = 100)
     private String nom;
+
     @NotNull
     @Size(min = 2, max = 100)
     private String prenom;
+
+    @Column(name="photo_blob")
+    @Type(type="org.hibernate.type.BinaryType")
+    private byte[] photoBlob;
+
+    @Column(name = "photo_content_length")
+    private Integer photoContentLength;
+
+    @Column(name = "photo_content_type", length = 50)
+    private String photoContentType;
+
     @NotNull
     @Size(min = 2, max = 200)
     private String rue;
@@ -137,5 +151,29 @@ public class AppUser {
 
     public void setAdmin(Boolean admin) {
         isAdmin = admin;
+    }
+
+    public byte[] getPhotoBlob() {
+        return photoBlob;
+    }
+
+    public void setPhotoBlob(byte[] photoBlob) {
+        this.photoBlob = photoBlob;
+    }
+
+    public Integer getPhotoContentLength() {
+        return photoContentLength;
+    }
+
+    public void setPhotoContentLength(Integer photoContentLength) {
+        this.photoContentLength = photoContentLength;
+    }
+
+    public String getPhotoContentType() {
+        return photoContentType;
+    }
+
+    public void setPhotoContentType(String photoContentType) {
+        this.photoContentType = photoContentType;
     }
 }
